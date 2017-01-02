@@ -1,0 +1,40 @@
+{
+  "name": "jsakademi-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "lab -c -L",
+    "test-cover": "lab -c -r html -o ./test/artifacts/coverage.html && open ./test/artifacts/coverage.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Poyraz Yilmaz <poyrazylmaz@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "dependencies": {
+    "confidence": "3.x.x",
+    "glue": "4.x.x",
+    "hapi": "15.x.x",
+    "hapi-auth-jwt2": "^7.2.4",
+    "hapi-mongo-models": "^6.0.0",
+    "hoek": "4.x.x",
+    "joi": "^10.0.2",
+    "mongo-models": "^1.1.0",
+    "mongodb": "^2.2.12"
+  },
+  "devDependencies": {
+    "code": "3.x.x",
+    "lab": "11.x.x",
+    "nodemon": "1.x.x"
+  }
+}
