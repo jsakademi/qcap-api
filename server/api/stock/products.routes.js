@@ -18,8 +18,14 @@ const ProductsRoutes = [{
         auth: 'jwt',
         validate: {
             payload: {
-                content: Joi.string().required(),
-                type: Joi.string().required()
+                name: Joi.string().required(),
+                code: Joi.string().required(),
+                amount: Joi.number(),
+                unit: Joi.string(),
+                minStock: Joi.number(),
+                maxStock: Joi.number(),
+                supplier: Joi.string(),
+                type: Joi.string()
             }
         }
     }
@@ -32,12 +38,18 @@ const ProductsRoutes = [{
         auth: 'jwt',
         validate: {
             params: {
-                partId: Joi.string().required()
+                productId: Joi.string().required()
             },
             payload: {
                 _id: Joi.any(),
-                content: Joi.string().required(),
-                type: Joi.string().required()
+                name: Joi.string().required(),
+                code: Joi.string().required(),
+                amount: Joi.number(),
+                unit: Joi.string(),
+                minStock: Joi.number(),
+                maxStock: Joi.number(),
+                supplier: Joi.string(),
+                type: Joi.string()
             }
         }
     }

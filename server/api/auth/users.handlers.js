@@ -86,8 +86,7 @@ class UsersHandler {
                 let token = JWT.sign(user, secret);
                 user.token = token;
                 reply(user)
-                    .header("Authorization", token)        // where token is the JWT
-                    .state("token", token, cookie_options);
+                    .header("Authorization", token);       // where token is the JWT;
             }
 
         })

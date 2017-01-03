@@ -44,10 +44,10 @@ Products.collection = 'stockproducts';
 Products.schema = Joi.object().keys({
     name: Joi.string().required(),
     code: Joi.string().required(),
-    amount: Joi.number().required(),
-    unit: Joi.string().required(),
-    minStock: Joi.number().required(),
-    maxStock: Joi.number().required(),
+    amount: Joi.number(),
+    unit: Joi.string(),
+    minStock: Joi.number(),
+    maxStock: Joi.number(),
     supplier: Joi.string(),
     type: Joi.string()
 });

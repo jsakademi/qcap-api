@@ -14,11 +14,11 @@ class ProductsHandler {
             supplier: request.payload.supplier
         };
         // create part and return it
-        Products.createProduct(product, (err, part) => {
+        Products.createProduct(product, (err, product) => {
             if (err) {
                 return reply(err);
             }
-            reply(part);
+            reply(product);
         })
     }
     
