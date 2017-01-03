@@ -20,12 +20,12 @@ const ProductsRoutes = [{
             payload: {
                 name: Joi.string().required(),
                 code: Joi.string().required(),
-                amount: Joi.number(),
-                unit: Joi.string(),
-                minStock: Joi.number(),
-                maxStock: Joi.number(),
-                supplier: Joi.string(),
-                type: Joi.string()
+                amount: Joi.number().allow(null),
+                unit: Joi.string().allow(null),
+                minStock: Joi.number().allow(null),
+                maxStock: Joi.number().allow(null),
+                supplier: Joi.string().allow(null),
+                type: Joi.string().required()
             }
         }
     }
