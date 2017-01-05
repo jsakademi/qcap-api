@@ -30,7 +30,8 @@
     "hoek": "4.x.x",
     "joi": "^10.0.2",
     "mongo-models": "^1.1.0",
-    "mongodb": "^2.2.12"
+    "mongodb": "^2.2.12",
+    "nodemon": "^1.11.0"
   },
   "devDependencies": {
     "code": "3.x.x",

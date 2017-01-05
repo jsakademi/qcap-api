@@ -15,6 +15,15 @@ class Products extends MongoModels {
             callback(err);
         });
     }
+
+
+    static findProductById(productId, callback) {
+        this.findById(productId, (err,product) => {
+            console.log(err);
+            console.log(product);
+            callback(err,product);
+        });
+    }
     
     static getProducts(callback) {
         this.find((err, products) => {

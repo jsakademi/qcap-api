@@ -7,7 +7,7 @@ const ProductsRoutes = [{
     handler: ProductsHandler.getProducts,
     config: {
         cors: true,
-        auth : 'jwt'
+        auth : false
     }
 }, {
     method: 'POST',
@@ -30,6 +30,19 @@ const ProductsRoutes = [{
         }
     }
 }, {
+    method: 'GET',
+    path: '/products/{productId}',
+    handler: ProductsHandler.getProduct,
+    config: {
+        cors: true,
+        auth: 'jwt',
+        validate: {
+            params: {
+                productId: Joi.string().required()
+            }
+        }
+    }
+}, {
     method: 'PUT',
     path: '/products/{productId}',
     handler: ProductsHandler.updateProduct,
@@ -44,12 +57,12 @@ const ProductsRoutes = [{
                 _id: Joi.any(),
                 name: Joi.string().required(),
                 code: Joi.string().required(),
-                amount: Joi.number(),
-                unit: Joi.string(),
-                minStock: Joi.number(),
-                maxStock: Joi.number(),
-                supplier: Joi.string(),
-                type: Joi.string()
+                amount: Joi.number().allow(null),
+                unit: Joi.string().allow(null),
+                minStock: Joi.number().allow(null),
+                maxStock: Joi.number().allow(null),
+                supplier: Joi.string().allow(null),
+                type: Joi.string().required()
             }
         }
     }

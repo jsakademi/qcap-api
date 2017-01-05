@@ -3,7 +3,7 @@ const JWT = require('jsonwebtoken');
 const secret = 'vnslj0xLW+wSpMrHvkXBxamLxviH1ps+yvlcy71b5PwVZaoZ985UmyAmXpFuSXtZoOGLsgxvGNylMEZW6A0k+osf769agzfkcglWCaJRrnsFJ8v4ziVri4hjjOWHHqN2R1fTg2NdwclL5CYknTApcqwIe1TDXNE93F26VqKTB/sDl7XKKl5gmRKt9mgaeXlPu6UPHCGop73a4WNrxHdSTTkPjYi+3xCwqG7ML/gwO3Yf32UmPsMayQiWxn7aRMkEnto+9vQ0BSm8lOWuz2QPAu6l9mcdY3eCfjNMamfjXanzPtigVTd5ThlXqGeFh0V3RLc4cu/Nmc5BjzVjxkA5YA==';
 
 const cookie_options = {
-    ttl: 365 * 24 * 60 * 60 * 1000, // expires a year from today
+    ttl:  15 * 60 * 1000, // expires 15 min from today
     encoding: 'none',    // we already used JWT to encode
     isSecure: true,      // warm & fuzzy felings
     isHttpOnly: true,    // prevent client alteration
@@ -86,7 +86,8 @@ class UsersHandler {
                 let token = JWT.sign(user, secret);
                 user.token = token;
                 reply(user)
-                    .header("Authorization", token);       // where token is the JWT;
+                    .header("Authorization", token)
+                    .state("token", token, cookie_options);       // where token is the JWT;
             }
 
         })

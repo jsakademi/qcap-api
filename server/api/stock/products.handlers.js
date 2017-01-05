@@ -32,7 +32,19 @@ class ProductsHandler {
             reply();
         });
     }
-    
+
+    static getProduct(request, reply) {
+        const productId = request.params.productId;
+        // delete part with given id
+        console.log("productId " + productId);
+        Products.findProductById(productId, (err,product) => {
+            if (err) {
+                return reply(err);
+            }
+            reply(product);
+        });
+    }
+
     static getProducts(request, reply) {
         // get and return parts from db
         Products.getProducts((err, products) => {
