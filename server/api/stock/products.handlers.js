@@ -11,7 +11,8 @@ class ProductsHandler {
             unit: request.payload.unit,
             minStock: request.payload.minStock,
             maxStock: request.payload.maxStock,
-            supplier: request.payload.supplier
+            supplier: request.payload.supplier,
+            type: request.payload.type
         };
         // create part and return it
         Products.createProduct(product, (err, product) => {
@@ -66,7 +67,8 @@ class ProductsHandler {
                 unit: request.payload.unit,
                 minStock: request.payload.minStock,
                 maxStock: request.payload.maxStock,
-                supplier: request.payload.supplier
+                supplier: request.payload.supplier,
+                type: request.payload.type
             }
         };
         // update part and return it
